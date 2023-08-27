@@ -1,0 +1,11 @@
+(define (domain my_domain)
+    (:requirements :strips :typing)
+    (:types type_1)
+    (:constants a_ab a_ac a_bc p_a p_b p_c s_ab s_ac s_bc - type_1)
+    (:predicates (isArc ?z - type_1)  (isPoint ?y - type_1)  (isSegment ?x - type_1))
+    (:action action-1
+        :parameters (?x - type_1 ?y - type_1)
+        :precondition (isSegment ?x)
+        :effect (and (isSegment ?x) (isPoint ?x) (isPoint ?y))
+    )
+)
