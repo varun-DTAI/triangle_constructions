@@ -1,7 +1,31 @@
-(define (problem problem-1)
-    (:domain my_domain)
-    (:requirements :strips :typing)
-    (:objects a_ab a_ac a_bc p_a p_b p_c s_ab s_ac s_bc - type_1)
-    (:init (isSegment s_ab) (not (isPoint p_a)) (not (isPoint p_b)))
-    (:goal (and (isSegment s_ab) (isPoint p_a) (isPoint p_b)))
+; Hello World example problem
+
+(define (problem construct)
+
+(:domain triangle)
+
+(:objects
+    a b c - point
+    s1 s2 s3 - segment
+)
+
+(:init
+    
+    (begin_with s1 a)
+    (end_with s1 b)
+    
+    (begin_with s2 b)
+    (end_with s2 c)
+    
+    (begin_with s3 c)
+    (end_with s3 a)
+)
+
+(:goal
+    (and
+        (isSegment s1 a b)
+        (isSegment s2 b c)
+        (isSegment s3 c a)
+    )
+)
 )
