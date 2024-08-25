@@ -1,4 +1,15 @@
-init = """
+; Hello World example problem
+
+(define (problem construct)
+
+(:domain triangle)
+
+(:objects
+    a b c - point
+    Sa Sb Sc - segment
+    A B C - angle
+)
+
 (:init
     
     ; Always true
@@ -14,9 +25,15 @@ init = """
     (isAngle A a)
     (isAngle B b)
     (isAngle C c)
-"""
 
-goal = """
+    ; Given conditions - 3 sides
+    (= (length Sa) 3)
+    (= (length Sb) 5)
+    ; (= (length Sc) 5)
+    (= (angle B) 90)
+
+)
+
 (:goal
     (and
         (isSegment Sc a b)
@@ -24,11 +41,4 @@ goal = """
         (isSegment Sb a c)
     )
 )
-"""
-
-xyz = """
-    (= (length Sa) 4)
-    (= (length Sc) 5)
-    (= (angle C) 90)
-"""
-print(open("p.pddl", 'r').read() + init + xyz + ")" + goal)
+)
